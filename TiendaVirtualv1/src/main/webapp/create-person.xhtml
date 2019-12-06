@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+
+<h1>Crear personas</h1>
+
+<h:form>
+	<h:panelGrid columns="3">
+		<h:outputLabel value="Id:" for="codigo"/>
+		<h:inputText id="codigo" value="#{personController.person.personId}"/>
+		<h:message for="codigo"/>
+		
+		<h:outputLabel value="Cédula:" for="cedula"/>
+		<h:inputText id="cedula" value="#{personController.person.identification}"/>
+		<h:message for="cedula"/>
+		
+		<h:outputLabel value="Actividad:" for="actividad"/>
+		<h:inputText id="actividad" value="#{personController.person.activity}"/>
+		<h:message for="actividad"/>
+		
+		
+		<h:outputLabel value="Nombres:" for="nombres"/>
+		<h:inputText id="nombres" value="#{personController.person.name}"/>
+		<h:message for="nombres"/>
+		
+		<h:outputLabel value="Email:" for="email"/>
+		<h:inputText id="email" value="#{personController.person.email}"/>
+		<h:message for="email"/>
+		
+		<h:commandButton action="#{personController.save()}" value="Guardar" />
+		<h:commandButton action="list-persons" value="Cancelar" />
+		<h:messages globalOnly="true"/>
+	
+	</h:panelGrid>
+
+
+</h:form>
+
+
+</body> 
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+<h1>Listado de personas</h1>
+
+<h:form>
+
+	<h:outputText value="No existe registros guardados" 
+		rendered="#{empty  personController.persons}" />
+
+	<h:dataTable value="#{personController.persons}" var="persona"
+		rendered="#{not empty personController.persons}">
+		<h:column>
+			<f:facet name="header">Código</f:facet>
+			#{person.personId}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Cédula</f:facet>
+			#{person.identification}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Nombres</f:facet>
+			#{person.name}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Fecha Nacimiento</f:facet>
+			#{person.fechaNacimiento}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Acciones</f:facet>
+			<h:commandButton action="#{personController.loadDataEditar(person.personId)}" value="Editar" />
+			<a href="editar-persona.xhtml?id=#{person.personId}">Editar</a>
+		</h:column>
+	</h:dataTable>
+	<h:commandButton action="create-person" value="Crear nueva persona" />
+
+</h:form>
+
+</body> 
+</html>
