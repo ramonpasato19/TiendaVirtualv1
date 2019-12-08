@@ -10,13 +10,13 @@ import javax.persistence.Query;
 import proyecto.ups.edu.ec.model.Person;
 
 
-@Stateless
+@Stateless //ejb sin estado
 public class PersonDAO {
 
 	@Inject
 	private EntityManager em;
 	
-	public void guardar(Person p) {
+	public void save(Person p) {
 		Person a=leer(p.getPersonId());
 		if(a!=null) {
 			update(p);
@@ -45,8 +45,7 @@ public class PersonDAO {
 	
 	
 	public List<Person> listPerson(){
-		Query query=em.createQuery("SELECT P from Person p ", Person.class);
-		@SuppressWarnings("unchecked")
+		Query query=em.createQuery("SELECT p from Person p ", Person.class);
 		List<Person> list=query.getResultList();
 		return list;
 	}

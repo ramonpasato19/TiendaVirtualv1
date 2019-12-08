@@ -14,7 +14,7 @@
 	<h:outputText value="No existe registros guardados" 
 		rendered="#{empty  personController.persons}" />
 
-	<h:dataTable value="#{personController.persons}" var="persona"
+	<h:dataTable value="#{personController.persons}" var="person"
 		rendered="#{not empty personController.persons}">
 		<h:column>
 			<f:facet name="header">Código</f:facet>
@@ -29,13 +29,18 @@
 			#{person.name}
 		</h:column>
 		<h:column>
-			<f:facet name="header">Fecha Nacimiento</f:facet>
-			#{person.fechaNacimiento}
+			<f:facet name="header">Actividad</f:facet>
+			#{person.activity}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Email</f:facet>
+			#{person.email}
 		</h:column>
 		<h:column>
 			<f:facet name="header">Acciones</f:facet>
-			<h:commandButton action="#{personController.loadDataEditar(person.personId)}" value="Editar" />
-			<a href="editar-persona.xhtml?id=#{person.personId}">Editar</a>
+			<h:commandButton action="#{personController.loadDataEdit(person.personId)}" value="Editar" />
+			<a href="edit-person.xhtml?id=#{person.personId}">Editar</a>
+			<h:commandButton action="#{personController.delete(person.personId)}" value="Eliminar" />
 		</h:column>
 	</h:dataTable>
 	<h:commandButton action="create-person" value="Crear nueva persona" />

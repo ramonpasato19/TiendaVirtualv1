@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import proyecto.ups.edu.ec.data.PersonDAO;
 import proyecto.ups.edu.ec.model.Person;
 
 @ManagedBean
+@SessionScoped
 public class PersonController {
 	
 
@@ -17,6 +19,7 @@ public class PersonController {
 	private PersonDAO persondao;
 	private Person person=null;
 	private List<Person> persons;
+	private int id;
 	
 	@PostConstruct
 	public void init() {
@@ -28,14 +31,14 @@ public class PersonController {
 		persons=persondao.listPerson();
 	}
 	
-	public String loadDataEditar(int personId) {
+	public String loadDataEdit(int personId) {
 		System.out.println("Cargando datos");
 		person =persondao.leer(personId);
 		return "create-person";
 	}
 	public String save() {
 		System.out.println(person);
-		persondao.guardar(person);
+		persondao.save(person);
 		loadPersons();
 		return "list-persons";
 	}
@@ -63,5 +66,22 @@ public class PersonController {
 	public void setPersons(List<Person> persons) {
 		this.persons = persons;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+		loadDataEdit(id);
+	}
+	
+	public String delete(int id) {
+		persondao.delete(id);
+		loadPersons();
+		return "list-persons";
+	}
+	
+	
 		
 }
