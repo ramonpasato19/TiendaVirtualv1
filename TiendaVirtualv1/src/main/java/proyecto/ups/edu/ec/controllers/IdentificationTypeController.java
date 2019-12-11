@@ -80,6 +80,30 @@ public class IdentificationTypeController {
 		loadpers();
 		return "list-identification-type";
 	}
+
+	public IdentificationTypeDAO getPerdao() {
+		return perdao;
+	}
+
+	public void setPerdao(IdentificationTypeDAO perdao) {
+		this.perdao = perdao;
+	}
+
+	public IdentificationType getPer() {
+		return per;
+	}
+
+	public void setPer(IdentificationType per) {
+		this.per = per;
+	}
+
+	public List<IdentificationType> getPers() {
+		return pers;
+	}
+
+	public void setPers(List<IdentificationType> pers) {
+		this.pers = pers;
+	}
 	
 	
 
