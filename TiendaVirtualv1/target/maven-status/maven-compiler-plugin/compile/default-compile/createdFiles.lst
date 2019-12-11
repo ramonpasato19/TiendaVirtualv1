@@ -1,0 +1,5 @@
+proyecto\ups\edu\ec\controllers\PersonController.class
+proyecto\ups\edu\ec\model\Person_.class
+proyecto\ups\edu\ec\data\PersonDAO.class
+proyecto\ups\edu\ec\model\Person.class
+proyecto\ups\edu\ec\resources\Resources.class

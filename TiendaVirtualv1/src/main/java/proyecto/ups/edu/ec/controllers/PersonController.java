@@ -43,6 +43,33 @@ public class PersonController {
 		return "list-persons";
 	}
 
+	public void del(int id) throws Exception {
+		Person aux = persondao.leer(id);
+	if(aux==null) 
+		throw new Exception("Persona no existe");
+		else
+	persondao.delete(id);
+	}
+	
+	
+	public String borrar(int  codigo) {
+		System.out.println("codigo borrar " + codigo);
+		
+		try {
+			del(codigo);
+			init();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error "+ e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	
+	
+	
 	public PersonDAO getPersondao() {
 		return persondao;
 	}
