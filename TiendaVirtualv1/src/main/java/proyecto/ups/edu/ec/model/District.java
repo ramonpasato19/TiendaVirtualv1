@@ -44,34 +44,34 @@ public class District implements Serializable{
 	@Temporal(value = TemporalType.DATE)
 	@Column(name="registration_date")
 	private Date registrationDate;
-
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="districtId", referencedColumnName="category_id")
-	private List<City> citys;
-
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="districtId", referencedColumnName="category_id")
-	private List<State> states;
-
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="districtId", referencedColumnName="category_id")
-	private List<Country> countrys;
-	
-	public void addCity(City city) {
-		if(citys ==null)
-		citys = new ArrayList<>();
-		citys.add(city);
-	}
-	public void addState(State state) {
-		if(states ==null)
-		states = new ArrayList<>();
-		states.add(state);
-	}
-	public void addCountry(Country country) {
-		if(countrys ==null)
-		countrys = new ArrayList<>();
-		countrys.add(country);
-	}
+//
+//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+//	@JoinColumn(name="districtId", referencedColumnName="category_id")
+//	private List<City> citys;
+//
+//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+//	@JoinColumn(name="districtId", referencedColumnName="category_id")
+//	private List<State> states;
+//
+//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+//	@JoinColumn(name="districtId", referencedColumnName="category_id")
+//	private List<Country> countrys;
+//	
+//	public void addCity(City city) {
+//		if(citys ==null)
+//		citys = new ArrayList<>();
+//		citys.add(city);
+//	}
+//	public void addState(State state) {
+//		if(states ==null)
+//		states = new ArrayList<>();
+//		states.add(state);
+//	}
+//	public void addCountry(Country country) {
+//		if(countrys ==null)
+//		countrys = new ArrayList<>();
+//		countrys.add(country);
+//	}
 	public Integer getDistrictId() {
 		return districtId;
 	}
@@ -90,24 +90,24 @@ public class District implements Serializable{
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
 	}
-	public List<City> getCitys() {
-		return citys;
-	}
-	public void setCitys(List<City> citys) {
-		this.citys = citys;
-	}
-	public List<State> getStates() {
-		return states;
-	}
-	public void setStates(List<State> states) {
-		this.states = states;
-	}
-	public List<Country> getCountrys() {
-		return countrys;
-	}
-	public void setCountrys(List<Country> countrys) {
-		this.countrys = countrys;
-	}
+//	public List<City> getCitys() {
+//		return citys;
+//	}
+//	public void setCitys(List<City> citys) {
+//		this.citys = citys;
+//	}
+//	public List<State> getStates() {
+//		return states;
+//	}
+//	public void setStates(List<State> states) {
+//		this.states = states;
+//	}
+//	public List<Country> getCountrys() {
+//		return countrys;
+//	}
+//	public void setCountrys(List<Country> countrys) {
+//		this.countrys = countrys;
+//	}
 	
 	
 }

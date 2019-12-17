@@ -100,25 +100,25 @@ public class AccountItem implements Serializable{
 	@Column(name="registration_date")
 	private Date registrationDate;
 
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="accountItemId", referencedColumnName="account_item_id")
-	private List<UnitMeasure> unitmeasures;
-
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="accountItemId", referencedColumnName="account_item_id")
-	private List<Category> categorys;
-	
-	public void addUnitMeasure(UnitMeasure unitmeasure) {
-		if(unitmeasures ==null)
-		unitmeasures = new ArrayList<>();
-		unitmeasures.add(unitmeasure);
-	}
-
-	public void addCategory(Category category) {
-		if(categorys ==null)
-		categorys = new ArrayList<>();
-		categorys.add(category);
-	}
+//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+//	@JoinColumn(name="accountItemId", referencedColumnName="account_item_id")
+//	private List<UnitMeasure> unitmeasures;
+//
+//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+//	@JoinColumn(name="accountItemId", referencedColumnName="account_item_id")
+//	private List<Category> categorys;
+//	
+//	public void addUnitMeasure(UnitMeasure unitmeasure) {
+//		if(unitmeasures ==null)
+//		unitmeasures = new ArrayList<>();
+//		unitmeasures.add(unitmeasure);
+//	}
+//
+//	public void addCategory(Category category) {
+//		if(categorys ==null)
+//		categorys = new ArrayList<>();
+//		categorys.add(category);
+//	}
 
 	public Integer getAccountItemId() {
 		return accountItemId;
@@ -232,21 +232,21 @@ public class AccountItem implements Serializable{
 		this.registrationDate = registrationDate;
 	}
 
-	public List<UnitMeasure> getUnitmeasures() {
-		return unitmeasures;
-	}
-
-	public void setUnitmeasures(List<UnitMeasure> unitmeasures) {
-		this.unitmeasures = unitmeasures;
-	}
-
-	public List<Category> getCategorys() {
-		return categorys;
-	}
-
-	public void setCategorys(List<Category> categorys) {
-		this.categorys = categorys;
-	}
+//	public List<UnitMeasure> getUnitmeasures() {
+//		return unitmeasures;
+//	}
+//
+//	public void setUnitmeasures(List<UnitMeasure> unitmeasures) {
+//		this.unitmeasures = unitmeasures;
+//	}
+//
+//	public List<Category> getCategorys() {
+//		return categorys;
+//	}
+//
+//	public void setCategorys(List<Category> categorys) {
+//		this.categorys = categorys;
+//	}
 	
 	
 

@@ -55,25 +55,25 @@ public class Company implements Serializable{
 	@Column(name="registration_date")
 	private Date registrationDate;
 
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="companyId", referencedColumnName="company_id")
-	private List<Currency> currencys;
-
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="companyId", referencedColumnName="company_id")
-	private List<Person> persons;
-	
-	public void addCurrency(Currency currency) {
-		if(currencys ==null)
-		currencys = new ArrayList<>();
-		currencys.add(currency);
-	}
-
-	public void addPerson(Person person) {
-		if(persons ==null)
-		persons = new ArrayList<>();
-		persons.add(person);
-	}
+//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+//	@JoinColumn(name="companyId", referencedColumnName="company_id")
+//	private List<Currency> currencys;
+//
+//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+//	@JoinColumn(name="companyId", referencedColumnName="company_id")
+//	private List<Person> persons;
+//	
+//	public void addCurrency(Currency currency) {
+//		if(currencys ==null)
+//		currencys = new ArrayList<>();
+//		currencys.add(currency);
+//	}
+//
+//	public void addPerson(Person person) {
+//		if(persons ==null)
+//		persons = new ArrayList<>();
+//		persons.add(person);
+//	}
 
 	public Integer getCompanyId() {
 		return companyId;
@@ -115,21 +115,21 @@ public class Company implements Serializable{
 		this.registrationDate = registrationDate;
 	}
 
-	public List<Currency> getCurrencys() {
-		return currencys;
-	}
-
-	public void setCurrencys(List<Currency> currencys) {
-		this.currencys = currencys;
-	}
-
-	public List<Person> getPersons() {
-		return persons;
-	}
-
-	public void setPersons(List<Person> persons) {
-		this.persons = persons;
-	}
+//	public List<Currency> getCurrencys() {
+//		return currencys;
+//	}
+//
+//	public void setCurrencys(List<Currency> currencys) {
+//		this.currencys = currencys;
+//	}
+//
+//	public List<Person> getPersons() {
+//		return persons;
+//	}
+//
+//	public void setPersons(List<Person> persons) {
+//		this.persons = persons;
+//	}
 
 	
 }

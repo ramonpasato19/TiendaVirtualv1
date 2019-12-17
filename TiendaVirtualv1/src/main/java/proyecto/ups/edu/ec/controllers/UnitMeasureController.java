@@ -28,7 +28,7 @@ public class UnitMeasureController {
 	}
 	
 	public void loadUnitMeasures() {
-		unitmeasure=unitmeasuredao.listUnitMeasure();
+		unitmeasures=unitmeasuredao.listUnitMeasure();
 	}
 	
 	public String loadDataEdit(int unitmeasureId) {

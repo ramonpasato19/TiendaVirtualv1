@@ -9,6 +9,8 @@ import javax.inject.Inject;
 
 import proyecto.ups.edu.ec.data.AccountItemDAO;
 import proyecto.ups.edu.ec.model.AccountItem;
+import proyecto.ups.edu.ec.model.Category;
+import proyecto.ups.edu.ec.model.UnitMeasure;
 
 @ManagedBean
 @SessionScoped
@@ -24,13 +26,13 @@ public class AccountItemController {
 	@PostConstruct
 	public void init() {
 		accountitem=new AccountItem();
-		accountitem.addUnitMeasure(new UnitMeasure());
-		accountitem.addCategory(new Category());
+//		accountitem.addUnitMeasure(new UnitMeasure());
+//		accountitem.addCategory(new Category());
 		loadAccountItems();
 	}
 	
 	public void loadAccountItems() {
-		accountitems=accountitemdao.listaccountitem();
+		accountitems=accountitemdao.listAccountItem();
 	}
 	
 	public String loadDataEdit(int accountitemId) {
@@ -88,15 +90,15 @@ public class AccountItemController {
 	}
 	
 
-	public String addUnitMeasure() {
-		accountitem.addUnitMeasure(new UnitMeasure());
-		return null;
-	}
-
-	public String addCategory() {
-		accountitem.addCategory(new Category());
-		return null;
-	}
+//	public String addUnitMeasure() {
+//		accountitem.addUnitMeasure(new UnitMeasure());
+//		return null;
+//	}
+//
+//	public String addCategory() {
+//		accountitem.addCategory(new Category());
+//		return null;
+//	}
 
 	public AccountItemDAO getAccountitemdao() {
 		return accountitemdao;

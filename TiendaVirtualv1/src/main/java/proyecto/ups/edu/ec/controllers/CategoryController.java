@@ -28,7 +28,7 @@ public class CategoryController {
 	}
 	
 	public void loadCategorys() {
-		categorys=categorydao.listcategory();
+		categorys=categorydao.listCategory();
 	}
 	
 	public String loadDataEdit(int categoryId) {
@@ -107,7 +107,7 @@ public class CategoryController {
 	
 	public String delete(int id) {
 		categorydao.delete(id);
-		loadcategorys();
+		loadCategorys();
 		return "list-categorys";
 	}
 	

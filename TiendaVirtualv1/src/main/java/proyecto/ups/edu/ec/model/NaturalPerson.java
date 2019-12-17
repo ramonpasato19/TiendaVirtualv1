@@ -84,45 +84,45 @@ public class NaturalPerson implements Serializable{
 	@Column(name="registration_date")
 	private Date registrationDate;
 
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="naturalPersonId", referencedColumnName="natural_person_id")
-	private List<Person> persons;
+//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+//	@JoinColumn(name="naturalPersonId", referencedColumnName="natural_person_id")
+//	private List<Person> persons;
+//
+//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+//	@JoinColumn(name="naturalPersonId", referencedColumnName="natural_person_id")
+//	private List<Gender> genders;
+//	
+//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+//	@JoinColumn(name="naturalPersonId", referencedColumnName="natural_person_id")
+//	private List<Nationality> nationalitys;
+//
+//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+//	@JoinColumn(name="naturalPersonId", referencedColumnName="natural_person_id")
+//	private List<MaritalStatus> maritalstatuss;
 
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="naturalPersonId", referencedColumnName="natural_person_id")
-	private List<Gender> genders;
-	
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="naturalPersonId", referencedColumnName="natural_person_id")
-	private List<Nationality> nationalitys;
-
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="naturalPersonId", referencedColumnName="natural_person_id")
-	private List<MaritalStatus> maritalstatuss;
-
-	public void addPerson(Person person) {
-		if(persons ==null)
-		persons = new ArrayList<>();
-		persons.add(person);
-	}
-
-	public void addGender(Gender gender) {
-		if(genders ==null)
-		genders = new ArrayList<>();
-		genders.add(gender);
-	}
-
-	public void addNationality(Nationality nationality) {
-		if(nationalitys ==null)
-		nationalitys = new ArrayList<>();
-		nationalitys.add(nationality);
-	}
-
-	public void addMaritalStatus(MaritalStatus maritalstatus) {
-		if(maritalstatuss ==null)
-		maritalstatuss = new ArrayList<>();
-		maritalstatuss.add(maritalstatus);
-	}
+//	public void addPerson(Person person) {
+//		if(persons ==null)
+//		persons = new ArrayList<>();
+//		persons.add(person);
+//	}
+//
+//	public void addGender(Gender gender) {
+//		if(genders ==null)
+//		genders = new ArrayList<>();
+//		genders.add(gender);
+//	}
+//
+//	public void addNationality(Nationality nationality) {
+//		if(nationalitys ==null)
+//		nationalitys = new ArrayList<>();
+//		nationalitys.add(nationality);
+//	}
+//
+//	public void addMaritalStatus(MaritalStatus maritalstatus) {
+//		if(maritalstatuss ==null)
+//		maritalstatuss = new ArrayList<>();
+//		maritalstatuss.add(maritalstatus);
+//	}
 
 	public Integer getNaturalPersonId() {
 		return naturalPersonId;
@@ -212,38 +212,38 @@ public class NaturalPerson implements Serializable{
 		this.registrationDate = registrationDate;
 	}
 
-	public List<Person> getPersons() {
-		return persons;
-	}
-
-	public void setPersons(List<Person> persons) {
-		this.persons = persons;
-	}
-
-	public List<Gender> getGenders() {
-		return genders;
-	}
-
-	public void setGenders(List<Gender> genders) {
-		this.genders = genders;
-	}
-
-	public List<Nationality> getNationalitys() {
-		return nationalitys;
-	}
-
-	public void setNationalitys(List<Nationality> nationalitys) {
-		this.nationalitys = nationalitys;
-	}
-
-	public List<MaritalStatus> getMaritalstatuss() {
-		return maritalstatuss;
-	}
-
-	public void setMaritalstatuss(List<MaritalStatus> maritalstatuss) {
-		this.maritalstatuss = maritalstatuss;
-	}
-	
+//	public List<Person> getPersons() {
+//		return persons;
+//	}
+//
+//	public void setPersons(List<Person> persons) {
+//		this.persons = persons;
+//	}
+//
+//	public List<Gender> getGenders() {
+//		return genders;
+//	}
+//
+//	public void setGenders(List<Gender> genders) {
+//		this.genders = genders;
+//	}
+//
+//	public List<Nationality> getNationalitys() {
+//		return nationalitys;
+//	}
+//
+//	public void setNationalitys(List<Nationality> nationalitys) {
+//		this.nationalitys = nationalitys;
+//	}
+//
+//	public List<MaritalStatus> getMaritalstatuss() {
+//		return maritalstatuss;
+//	}
+//
+//	public void setMaritalstatuss(List<MaritalStatus> maritalstatuss) {
+//		this.maritalstatuss = maritalstatuss;
+//	}
+//	
 	
 
 }
