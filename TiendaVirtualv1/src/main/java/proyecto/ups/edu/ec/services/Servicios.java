@@ -12,6 +12,7 @@ import javax.ws.rs.QueryParam;
 import proyecto.ups.edu.ec.data.AccountItemDAO;
 import proyecto.ups.edu.ec.data.PersonDAO;
 import proyecto.ups.edu.ec.model.Person;
+import javax.ws.rs.core.Response;
 
 @Path("/persons")
 public class Servicios {
@@ -65,5 +66,22 @@ public class Servicios {
 //		}
 //		return r;
 //	}
+	
+	
+	@POST
+	@Path("/savePerson")
+    @Consumes("application/json")
+    @Produces("application/json")
+	public Response crearAsistente(Person person) {
+		Response.ResponseBuilder builder =null;
+		try {
+			perdao.save(person);
+			builder = Response.ok();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return builder.build();
+		
+	}
 
 }
