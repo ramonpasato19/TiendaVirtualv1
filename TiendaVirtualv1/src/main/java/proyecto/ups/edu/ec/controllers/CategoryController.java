@@ -5,13 +5,15 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import proyecto.ups.edu.ec.data.CategoryDAO;
 import proyecto.ups.edu.ec.model.Category;
 
 @ManagedBean
-@SessionScoped
+//@SessionScoped
+@ViewScoped
 public class CategoryController {
 	
 
@@ -34,7 +36,7 @@ public class CategoryController {
 	public String loadDataEdit(int categoryId) {
 		System.out.println("Cargando datos");
 		category =categorydao.leer(categoryId);
-		return "create-category";
+		return "edit-category";
 	}
 	public String save() {
 		System.out.println(category);

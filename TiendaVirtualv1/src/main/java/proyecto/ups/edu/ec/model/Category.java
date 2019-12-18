@@ -1,19 +1,19 @@
 package proyecto.ups.edu.ec.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Length;
 
 /**
  * @author Luis Ramon
@@ -26,16 +26,21 @@ public class Category implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	//@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@SequenceGenerator(name="CATEGORYID_SEQ", sequenceName="CATEGORYID_SEQ",initialValue=1,allocationSize=1)
+	//@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="CATEGORYID_SEQ")
 	@Column(name="category_id")
-	private Integer categoryId;
+	private int categoryId;
 	
-	
-	@NotNull
-    @NotEmpty
+	@NotNull(message="Please select a password")
+	@Size(max = 20, min = 3, message = "{No puede ir vacion el nombre}")
+//    @NotEmpty(message = "{category.name.empty}")
+	//@Length(min=5, max=20, message="Password should be between 5 - 10 charactes")
 	@Column(name = "name")
 	private String name;
 
+	@OneToMany(mappedBy = "categorys")
+	private List<AccountItem> accountitems;
 
 	public Integer getCategoryId() {
 		return categoryId;
@@ -54,6 +59,16 @@ public class Category implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+
+	public List<AccountItem> getAccountitems() {
+		return accountitems;
+	}
+
+
+	public void setAccountitems(List<AccountItem> accountitems) {
+		this.accountitems = accountitems;
 	}
 	
 	

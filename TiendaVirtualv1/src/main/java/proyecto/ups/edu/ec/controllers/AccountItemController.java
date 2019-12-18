@@ -5,15 +5,15 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import proyecto.ups.edu.ec.data.AccountItemDAO;
 import proyecto.ups.edu.ec.model.AccountItem;
-import proyecto.ups.edu.ec.model.Category;
-import proyecto.ups.edu.ec.model.UnitMeasure;
 
 @ManagedBean
-@SessionScoped
+//@SessionScoped
+@ViewScoped
 public class AccountItemController {
 	
 
@@ -26,9 +26,8 @@ public class AccountItemController {
 	@PostConstruct
 	public void init() {
 		accountitem=new AccountItem();
-//		accountitem.addUnitMeasure(new UnitMeasure());
-//		accountitem.addCategory(new Category());
 		loadAccountItems();
+		accountitems=accountitemdao.listAccountItem();
 	}
 	
 	public void loadAccountItems() {
@@ -73,32 +72,8 @@ public class AccountItemController {
 	
 	
 	
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-		loadDataEdit(id);
-	}
-	
-	public String delete(int id) {
-		accountitemdao.delete(id);
-		loadAccountItems();
-		return "list-accountitems";
-	}
 	
 
-//	public String addUnitMeasure() {
-//		accountitem.addUnitMeasure(new UnitMeasure());
-//		return null;
-//	}
-//
-//	public String addCategory() {
-//		accountitem.addCategory(new Category());
-//		return null;
-//	}
 
 	public AccountItemDAO getAccountitemdao() {
 		return accountitemdao;
@@ -123,8 +98,36 @@ public class AccountItemController {
 	public void setAccountitems(List<AccountItem> accountitems) {
 		this.accountitems = accountitems;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+		loadDataEdit(id);
+	}
 	
+	public String delete(int id) {
+		accountitemdao.delete(id);
+		loadAccountItems();
+		return "list-accountitems";
+	}
 	
+
+
+//	public String addCategory() {
+//		accountitem.addCategory(new Category());
+//		return null;
+//	}
 	
+//	public String addCategory() {
+//		System.out.println("add catgoria");
+//		accountitem.addCategory(new AccountItem());
+//		
+//		System.out.println("size 2: " + persona.getTelefonos().size());
+//		
+//		return null;
+//	}
 		
 }
