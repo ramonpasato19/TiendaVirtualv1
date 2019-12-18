@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+<h1>Listado de personas</h1>
+
+<h:form>
+
+	<h:outputText value="No existe registros guardados" 
+		rendered="#{empty  accountItemController.accountitems}" />
+
+	<h:dataTable value="#{accountItemController.accountitems}" var="accountitem"
+		rendered="#{not empty accountItemController.accountitems}">
+		<h:column>
+			<f:facet name="header">Código</f:facet>
+			#{accountitem.accountItemId}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Codigo</f:facet>
+			#{accountitem.code}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Nombre</f:facet>
+			#{accountitem.name}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Descripcion</f:facet>
+			#{accountitem.description}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Costo</f:facet>
+			#{accountitem.cost}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Precio</f:facet>
+			#{accountitem.price}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Color</f:facet>
+			#{accountitem.color}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Tamaño</f:facet>
+			#{accountitem.size}
+		</h:column>
+		<h:column>
+			<f:facet name="header">vattax</f:facet>
+			#{accountitem.vattax}
+		</h:column>
+		<h:column>
+			<f:facet name="header">imagen 1</f:facet>
+			#{accountitem.image1}
+		</h:column>
+		<h:column>
+			<f:facet name="header">imagen 2</f:facet>
+			#{accountitem.image2}
+		</h:column>
+		<h:column>
+			<f:facet name="header">imagen 3</f:facet>
+			#{accountitem.image3}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Nuevo/usado</f:facet>
+			#{accountitem.newUsed}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Fecha</f:facet>
+			#{accountitem.registrationDate}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Acciones</f:facet>
+			<h:commandButton action="#{accountItemController.loadDataEdit(accountitem.accountItemId)}" value="Editar" />
+			
+			<h:commandButton action="#{accountItemController.delete(accountitem.accountItemId)}" value="Eliminar" />
+			<h:commandButton action="#{accountItemController.borrar(accountitem.accountItemId)}" value="Eli" />
+		</h:column>
+	</h:dataTable>
+	<h:commandButton action="create-accountitem" value="Crear nuevo item" />
+
+</h:form>
+
+</body> 
+</html>
