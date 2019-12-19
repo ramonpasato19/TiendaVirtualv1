@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import proyecto.ups.edu.ec.data.AccountItemDAO;
 import proyecto.ups.edu.ec.data.PersonDAO;
+import proyecto.ups.edu.ec.model.AccountItem;
 import proyecto.ups.edu.ec.model.Person;
 import javax.ws.rs.core.Response;
 
@@ -36,6 +37,13 @@ public class Servicios {
 	@Produces("application/json")
 	public List<Person> listar(){
 		return perdao.listPerson();
+	}
+	
+	@GET
+	@Path("/listadoitems")
+	@Produces("application/json")
+	public List<AccountItem> listar1(){
+		return asidao.listAccountItem();
 	}
 	
 	
