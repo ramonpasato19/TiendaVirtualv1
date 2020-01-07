@@ -10,9 +10,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,6 +22,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import test.Tipo;
 
 /**
  * @author Luis Ramon
@@ -32,46 +36,31 @@ public class District implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	//@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="category_id")
 	private Integer districtId;
 		
 	@NotNull
-    	@NotEmpty
+    @NotEmpty
 	@Column(name = "name")
 	private String name;
 
 	@Temporal(value = TemporalType.DATE)
 	@Column(name="registration_date")
 	private Date registrationDate;
-//
-//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-//	@JoinColumn(name="districtId", referencedColumnName="category_id")
-//	private List<City> citys;
-//
-//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-//	@JoinColumn(name="districtId", referencedColumnName="category_id")
-//	private List<State> states;
-//
-//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-//	@JoinColumn(name="districtId", referencedColumnName="category_id")
-//	private List<Country> countrys;
-//	
-//	public void addCity(City city) {
-//		if(citys ==null)
-//		citys = new ArrayList<>();
-//		citys.add(city);
-//	}
-//	public void addState(State state) {
-//		if(states ==null)
-//		states = new ArrayList<>();
-//		states.add(state);
-//	}
-//	public void addCountry(Country country) {
-//		if(countrys ==null)
-//		countrys = new ArrayList<>();
-//		countrys.add(country);
-//	}
+	
+	@OneToOne
+	@JoinColumn(name="city_id")
+	private City city;
+	
+	@OneToOne
+	@JoinColumn(name="country_id")
+	private Country country;
+	
+	@OneToOne
+	@JoinColumn(name="state_id")
+	private State state;
+
 	public Integer getDistrictId() {
 		return districtId;
 	}
@@ -90,24 +79,25 @@ public class District implements Serializable{
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
 	}
-//	public List<City> getCitys() {
-//		return citys;
-//	}
-//	public void setCitys(List<City> citys) {
-//		this.citys = citys;
-//	}
-//	public List<State> getStates() {
-//		return states;
-//	}
-//	public void setStates(List<State> states) {
-//		this.states = states;
-//	}
-//	public List<Country> getCountrys() {
-//		return countrys;
-//	}
-//	public void setCountrys(List<Country> countrys) {
-//		this.countrys = countrys;
-//	}
+	public City getCity() {
+		return city;
+	}
+	public void setCity(City city) {
+		this.city = city;
+	}
+	public Country getCountry() {
+		return country;
+	}
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+	public State getState() {
+		return state;
+	}
+	public void setState(State state) {
+		this.state = state;
+	}
+
 	
 	
 }
