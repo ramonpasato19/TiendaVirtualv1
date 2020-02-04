@@ -89,7 +89,39 @@ public class Servicios {
 			e.printStackTrace();
 		}
 		return builder.build();
-		
 	}
+	
+//	@POST
+//	@Path("/guardaraccount")
+//	@Produces("application/json")
+//	@Consumes("application/json")
+//	public Respuesta saveAccount(Account acc){
+//	Respuesta resp=new Respuesta();
+//	try{
+//		dao.insert(acc);
+//		resp.setCodigo(1);
+//		resp.setMensaje("Registro Satisfactorio");
+//
+//	}catch(Exception e)
+//		resp.setCodigo(-1);
+//		resp.setMensaje("Error de registro");
+//	}
+//
+//
+//
+//	@GET
+//	@Path("/account")
+//	@Produces("application/json")
+//	public List<Accountp> getAccounts(){
+//		List<Account> accounts=dao.getAccounts();
+//		List<AccountTemp> accs=new ArrayList();
+//		for(Account acc: accounts){
+//			Accountp tmp=new Accountp();
+//			tmp.setAccountId(acc.getAccountId());
+//			tmp.setName(acc.getName());
+//			accs.add(tmp);
+//		}
+//		return accs
+//	}
 
 }

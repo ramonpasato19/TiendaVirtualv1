@@ -42,52 +42,52 @@ public class AccountItem implements Serializable{
 	private int accountItemId;
 		
 	@NotNull
-    //@NotEmpty
+    
 	@Column(name = "code")
 	private String code;	
 	
 	@NotNull
-    //@NotEmpty
+    
 	@Column(name = "name")
 	private String name;
 
 	@NotNull
-    //@NotEmpty
+    
 	@Column(name = "description")
 	private String description;
 
 	@NotNull
-    //@NotEmpty
+    
 	@Column(name = "cost")
 	private double cost;
 
 	@NotNull
-    //@NotEmpty
+    
 	@Column(name = "price")
 	private Double price;
 
 	@NotNull
-    //@NotEmpty
+    
 	@Column(name = "color")
 	private String color;
 	
 	@NotNull
-    //@NotEmpty
+    
 	@Column(name = "size")
 	private String size;
 
 	@NotNull
-    //@NotEmpty
+    
 	@Column(name = "vattax")
 	private String vattax;
 
 	@NotNull
-    //@NotEmpty
+    
 	@Column(name = "image1")
 	private String image1;
 //*****************************************************************************************
 //	@NotNull
-//    //@NotEmpty
+//    
 //    @Lob
 //    @Basic(fetch=FetchType.LAZY)
 
@@ -96,12 +96,12 @@ public class AccountItem implements Serializable{
 	private String image2;
 
 	@NotNull
-    //@NotEmpty
+    
 	@Column(name = "image3")
 	private String image3;
 
 	@NotNull
-    //@NotEmpty
+    
 	@Column(name = "new_used")
 	private String newUsed;
 
