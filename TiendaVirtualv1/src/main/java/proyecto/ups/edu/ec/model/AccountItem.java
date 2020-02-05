@@ -26,6 +26,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+
+
 /**
  * @author Luis Ramon
  * @version 1.0.0
@@ -42,23 +44,19 @@ public class AccountItem implements Serializable{
 	private int accountItemId;
 		
 	@NotNull
-    
-	@Column(name = "code")
+   @Column(name = "code")
 	private String code;	
 	
 	@NotNull
-    
-	@Column(name = "name")
+   @Column(name = "name")
 	private String name;
 
 	@NotNull
-    
-	@Column(name = "description")
+   @Column(name = "description")
 	private String description;
 
 	@NotNull
-    
-	@Column(name = "cost")
+    @Column(name = "cost")
 	private double cost;
 
 	@NotNull
@@ -86,23 +84,17 @@ public class AccountItem implements Serializable{
 	@Column(name = "image1")
 	private String image1;
 //*****************************************************************************************
-//	@NotNull
-//    
-//    @Lob
-//    @Basic(fetch=FetchType.LAZY)
 
 	@Column(name = "image2")
 	//private byte[] image2;
 	private String image2;
 
 	@NotNull
-    
-	@Column(name = "image3")
+    @Column(name = "image3")
 	private String image3;
 
 	@NotNull
-    
-	@Column(name = "new_used")
+    @Column(name = "new_used")
 	private String newUsed;
 
 	@Temporal(value = TemporalType.DATE)
@@ -112,9 +104,6 @@ public class AccountItem implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "categoryId")
 	private Category categorys;
-	
-	//private List<Telefono> telefonos;
-	
 	
 	public Integer getAccountItemId() {
 		return accountItemId;
