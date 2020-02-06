@@ -16,7 +16,6 @@ import proyecto.ups.edu.ec.model.Category;
 @ViewScoped
 public class CategoryController {
 	
-
 	@Inject
 	private CategoryDAO categorydao;
 	private Category category=null;
@@ -36,7 +35,7 @@ public class CategoryController {
 	public String loadDataEdit(int categoryId) {
 		System.out.println("Cargando datos");
 		category =categorydao.leer(categoryId);
-		return "edit-category";
+		return "create-category";
 	}
 	public String save() {
 		System.out.println(category);
@@ -69,11 +68,6 @@ public class CategoryController {
 		return null;
 	}
 	
-	
-	
-	
-
-
 	public CategoryDAO getCategorydao() {
 		return categorydao;
 	}

@@ -141,19 +141,19 @@ public class Person implements Serializable{
 	@NotNull
     @NotEmpty
     @Pattern(regexp = "[^0-9]*", message = "No puede contener numeros")
-    @Column(name = "city")
+    @Column(name = "country")
 	private String country;
 	
 	@NotNull
     @NotEmpty
     @Pattern(regexp = "[^0-9]*", message = "No puede contener numeros")
-    @Column(name = "city")
+    @Column(name = "state")
 	private String state;
 	
 	@NotNull
     @NotEmpty
     @Pattern(regexp = "[^0-9]*", message = "No puede contener numeros")
-    @Column(name = "city")
+    @Column(name = "district")
 	private String district;
 	
 
@@ -162,7 +162,7 @@ public class Person implements Serializable{
 	private Gender gender;
 	
 	@OneToOne
-	@JoinColumn(name="maritalstatus_id")
+	@JoinColumn(name="marital_status_id")
 	private MaritalStatus maritalStatus;
 	
 	@OneToOne

@@ -27,51 +27,28 @@ public class Category implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	//@SequenceGenerator(name="CATEGORYID_SEQ", sequenceName="CATEGORYID_SEQ",initialValue=1,allocationSize=1)
-	//@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="CATEGORYID_SEQ")
 	@Column(name="category_id")
 	private int categoryId;
 	
-	@NotNull(message="Please select a password")
-	@Size(max = 20, min = 3, message = "{No puede ir vacion el nombre}")
-//    @NotEmpty(message = "{category.name.empty}")
-	//@Length(min=5, max=20, message="Password should be between 5 - 10 charactes")
+	@NotNull(message="Please input name category")
+	@Size(max = 20, min = 3, message = "{No puede ir vacio el nombre}")
 	@Column(name = "name")
 	private String name;
-
-	@OneToMany(mappedBy = "categorys")
-	private List<AccountItem> accountitems;
 
 	public Integer getCategoryId() {
 		return categoryId;
 	}
 
-
 	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
-
 
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
-	public List<AccountItem> getAccountitems() {
-		return accountitems;
-	}
-
-
-	public void setAccountitems(List<AccountItem> accountitems) {
-		this.accountitems = accountitems;
-	}
-	
-	
-	
 	
 }

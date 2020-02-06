@@ -10,8 +10,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -20,6 +22,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+
 
 /**
  * @author Luis Ramon
@@ -32,22 +35,22 @@ public class Company implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	//@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="company_id")
 	private Integer companyId;
 		
 	@NotNull
-    	@NotEmpty
+    @NotEmpty
 	@Column(name = "name")
 	private String name;
 
 	@NotNull
-    	@NotEmpty
+    @NotEmpty
 	@Column(name = "organization")
 	private String organization;
 
 	@NotNull
-    	@NotEmpty
+    @NotEmpty
 	@Column(name = "logo")
 	private String logo;
 
@@ -56,25 +59,15 @@ public class Company implements Serializable{
 	private Date registrationDate;
 
 //	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-//	@JoinColumn(name="companyId", referencedColumnName="company_id")
-//	private List<Currency> currencys;
-//
-//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-//	@JoinColumn(name="companyId", referencedColumnName="company_id")
-//	private List<Person> persons;
-//	
-//	public void addCurrency(Currency currency) {
-//		if(currencys ==null)
-//		currencys = new ArrayList<>();
-//		currencys.add(currency);
-//	}
-//
-//	public void addPerson(Person person) {
-//		if(persons ==null)
-//		persons = new ArrayList<>();
-//		persons.add(person);
-//	}
+//	@JoinColumn(name="company")
+//	private List<Product> products;
+	
+	@ManyToOne
+	@JoinColumn(name="person_id", nullable=false)
+	private Person person;
+	
 
+	
 	public Integer getCompanyId() {
 		return companyId;
 	}
@@ -115,21 +108,15 @@ public class Company implements Serializable{
 		this.registrationDate = registrationDate;
 	}
 
-//	public List<Currency> getCurrencys() {
-//		return currencys;
-//	}
-//
-//	public void setCurrencys(List<Currency> currencys) {
-//		this.currencys = currencys;
-//	}
-//
-//	public List<Person> getPersons() {
-//		return persons;
-//	}
-//
-//	public void setPersons(List<Person> persons) {
-//		this.persons = persons;
-//	}
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
+
 
 	
 }

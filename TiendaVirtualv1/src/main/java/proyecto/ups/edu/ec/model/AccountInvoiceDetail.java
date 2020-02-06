@@ -18,6 +18,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,24 +36,24 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 @Entity
 @Table(name="account_item")
-public class AccountItem implements Serializable{
+public class AccountInvoiceDetail implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="account_item_id")
-	private int accountItemId;
+	@Column(name="account_invoice_detail_id")
+	private int accountInvoiceDetailId;
 		
 	@NotNull
-   @Column(name = "code")
+    @Column(name = "code")
 	private String code;	
 	
 	@NotNull
-   @Column(name = "name")
+    @Column(name = "name")
 	private String name;
 
 	@NotNull
-   @Column(name = "description")
+    @Column(name = "description")
 	private String description;
 
 	@NotNull
@@ -60,30 +61,24 @@ public class AccountItem implements Serializable{
 	private double cost;
 
 	@NotNull
-    
-	@Column(name = "price")
+    @Column(name = "price")
 	private Double price;
 
 	@NotNull
-    
-	@Column(name = "color")
+    @Column(name = "color")
 	private String color;
 	
 	@NotNull
-    
-	@Column(name = "size")
+    @Column(name = "size")
 	private String size;
 
 	@NotNull
-    
-	@Column(name = "vattax")
+    @Column(name = "vattax")
 	private String vattax;
 
 	@NotNull
-    
-	@Column(name = "image1")
+    @Column(name = "image1")
 	private String image1;
-//*****************************************************************************************
 
 	@Column(name = "image2")
 	//private byte[] image2;
@@ -93,26 +88,14 @@ public class AccountItem implements Serializable{
     @Column(name = "image3")
 	private String image3;
 
-	@NotNull
-    @Column(name = "new_used")
-	private String newUsed;
-
 	@Temporal(value = TemporalType.DATE)
-	@Column(name="registration_date")
-	private Date registrationDate;
+	@Column(name="issue_date")
+	private Date issueDate;
 
-	@ManyToOne
-	@JoinColumn(name = "categoryId")
-	private Category categorys;
+	@OneToOne
+	@JoinColumn(name = "category_id")
+	private Category category;
 	
-	public Integer getAccountItemId() {
-		return accountItemId;
-	}
-
-	public void setAccountItemId(Integer accountItemId) {
-		this.accountItemId = accountItemId;
-	}
-
 	public String getCode() {
 		return code;
 	}
@@ -185,36 +168,12 @@ public class AccountItem implements Serializable{
 		this.image1 = image1;
 	}
 
-//	public String getImage2() {
-//		return image2;
-//	}
-//
-//	public void setImage2(String image2) {
-//		this.image2 = image2;
-//	}
-
 	public String getImage3() {
 		return image3;
 	}
 
 	public void setImage3(String image3) {
 		this.image3 = image3;
-	}
-
-	public String getNewUsed() {
-		return newUsed;
-	}
-
-	public void setNewUsed(String newUsed) {
-		this.newUsed = newUsed;
-	}
-
-	public Date getRegistrationDate() {
-		return registrationDate;
-	}
-
-	public void setRegistrationDate(Date registrationDate) {
-		this.registrationDate = registrationDate;
 	}
 
 	public String getImage2() {
@@ -225,28 +184,28 @@ public class AccountItem implements Serializable{
 		this.image2 = image2;
 	}
 
-	public void setAccountItemId(int accountItemId) {
-		this.accountItemId = accountItemId;
+	public int getAccountInvoiceDetailId() {
+		return accountInvoiceDetailId;
 	}
 
-	public Category getCategorys() {
-		return categorys;
+	public void setAccountInvoiceDetailId(int accountInvoiceDetailId) {
+		this.accountInvoiceDetailId = accountInvoiceDetailId;
 	}
 
-	public void setCategorys(Category categorys) {
-		this.categorys = categorys;
+	public Date getIssueDate() {
+		return issueDate;
 	}
 
+	public void setIssueDate(Date issueDate) {
+		this.issueDate = issueDate;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 	
-//	public void addCategory(Category category) {
-//		if(categorys==null)
-//			categorys = new ArrayList<>();
-//		
-//		categorys.add(category);
-//		System.out.println("tele size "+ categorys.size());
-//	}
-
-
-
-
 }

@@ -7,12 +7,12 @@ import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import proyecto.ups.edu.ec.data.AccountItemDAO;
-import proyecto.ups.edu.ec.model.AccountItem;
+import proyecto.ups.edu.ec.data.AccountInvoiceDetailDAO;
+import proyecto.ups.edu.ec.model.AccountInvoiceDetail;
 
 public class AccountItemON {
 	@Inject
-	private AccountItemDAO dao;
+	private AccountInvoiceDetailDAO dao;
 	
 
 	
