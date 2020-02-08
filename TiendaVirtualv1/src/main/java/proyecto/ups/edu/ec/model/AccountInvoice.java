@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -26,7 +27,7 @@ import javax.validation.constraints.NotNull;
  * La entidad sirve para crear una tabla item o producto
  */
 @Entity
-@Table(name="account_invoice_detail")
+@Table(name="account_invoice")
 public class AccountInvoice implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -59,9 +60,22 @@ public class AccountInvoice implements Serializable{
 	@JoinColumn(name="company_id")
 	private Company company;
 	
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)//tipo deletura que voy hacer, si leo head me traiga los hijos,
-	@JoinColumn(name = "accountInvoice",referencedColumnName = "account_invoice_detail_id")
-	private List<AccountInvoiceDetail> accountinvoicedetail=new ArrayList<AccountInvoiceDetail>();
+	@ManyToOne
+	@JoinColumn(name="account_invoice_detail_id")
+	private AccountInvoiceDetail accountInvoiceDetail;
+	
+//	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)//tipo deletura que voy hacer, si leo head me traiga los hijos,
+//	@JoinColumn(name = "accountInvoice",referencedColumnName = "account_invoice_detail_id")
+//	private List<AccountInvoiceDetail> accountinvoicedetail=new ArrayList<AccountInvoiceDetail>();
+	
+//	
+//	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)//tipo deletura que voy hacer, si leo head me traiga los hijos,
+//	@JoinColumn(name = "account_invoice_detail_id")
+//	private List<AccountInvoiceDetail> accountinvoicedetail;
+//	
+//	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@JoinColumn(name = "codigo_persona")
+//	private List<Telefono> telefonos;
 
 	public int getAccountInvoiceId() {
 		return accountInvoiceId;
@@ -119,13 +133,23 @@ public class AccountInvoice implements Serializable{
 		this.company = company;
 	}
 
-	public List<AccountInvoiceDetail> getAccountinvoicedetail() {
-		return accountinvoicedetail;
+	public AccountInvoiceDetail getAccountInvoiceDetail() {
+		return accountInvoiceDetail;
 	}
 
-	public void setAccountinvoicedetail(List<AccountInvoiceDetail> accountinvoicedetail) {
-		this.accountinvoicedetail = accountinvoicedetail;
+	public void setAccountInvoiceDetail(AccountInvoiceDetail accountInvoiceDetail) {
+		this.accountInvoiceDetail = accountInvoiceDetail;
 	}
+	
+	
+
+//	public List<AccountInvoiceDetail> getAccountinvoicedetail() {
+//		return accountinvoicedetail;
+//	}
+//
+//	public void setAccountinvoicedetail(List<AccountInvoiceDetail> accountinvoicedetail) {
+//		this.accountinvoicedetail = accountinvoicedetail;
+//	}
 
 
 	

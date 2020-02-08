@@ -35,7 +35,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  * La entidad sirve para crear una tabla item o producto
  */
 @Entity
-@Table(name="account_item")
+@Table(name="account_invoice_detail")
 public class AccountInvoiceDetail implements Serializable{
 	private static final long serialVersionUID = 1L;
 	

@@ -8,6 +8,8 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import proyecto.ups.edu.ec.data.PersonDAO;
+import proyecto.ups.edu.ec.model.Gender;
+import proyecto.ups.edu.ec.model.MaritalStatus;
 import proyecto.ups.edu.ec.model.Person;
 
 @ManagedBean
@@ -17,13 +19,14 @@ public class PersonController {
 
 	@Inject
 	private PersonDAO persondao;
-	private Person person=null;
+	private Person person;
 	private List<Person> persons;
 	private int id;
 	
 	@PostConstruct
 	public void init() {
 		person=new Person();
+
 		loadPersons();
 	}
 	
@@ -110,5 +113,9 @@ public class PersonController {
 	}
 	
 	
+//	public String addGender() {
+//		person.addTelefono(telefono);.addGender(new Gender());
+//		return null;
+//	}
 		
 }

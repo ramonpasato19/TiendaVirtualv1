@@ -12,9 +12,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+
 
 
 
@@ -34,12 +37,13 @@ public class Account implements Serializable{
 	@Column(name="account_id")
 	private int accountId;
 		
-	@Column(name="name")
-	private String name;
-	
 	@NotNull
     @Column(name = "code")
 	private String code;
+	
+	@NotNull
+	@Column(name="name")
+	private String name;
 	
 	@NotNull
     @Column(name = "product")
@@ -49,9 +53,48 @@ public class Account implements Serializable{
 //	@JoinColumn(name = "account",referencedColumnName = "person_id")
 //	private List<Person> person=new ArrayList<Person>();
 	
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)//tipo de lectura que voy hacer, si leo head me traiga los hijos,
-	@JoinColumn(name = "account",referencedColumnName = "account_invoice_id")
-	private List<AccountInvoice> accountInvoice=new ArrayList<AccountInvoice>();
+//	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)//tipo de lectura que voy hacer, si leo head me traiga los hijos,
+//	@JoinColumn(name = "account",referencedColumnName = "account_invoice_id")
+//	private List<AccountInvoice> accountInvoice=new ArrayList<AccountInvoice>();
+	
+//	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)//tipo de lectura que voy hacer, si leo head me traiga los hijos,
+//	@JoinColumn(name = "account_invoice_id")
+//	private List<AccountInvoice> accountInvoice;
+
+//	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)//tipo deletura que voy hacer, si leo head me traiga los hijos,
+//	@JoinColumn(name = "account",referencedColumnName = "account_id")
+//	private List<AccountInvoice> accountInvoice=new ArrayList<AccountInvoice>();
+	
+	
+//	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)//tipo deletura que voy hacer, si leo head me traiga los hijos,
+//	@JoinColumn(name = "account_invoice_detail_id")
+//	private List<AccountInvoiceDetail> accountinvoicedetail;
+	
+	@ManyToOne
+	@JoinColumn(name="person_id")
+	private Person person;
+	
+	@ManyToOne
+	@JoinColumn(name="account_invoice_id")
+	private AccountInvoice accountInvoice;
+	
+	
+	
+	public AccountInvoice getAccountInvoice() {
+		return accountInvoice;
+	}
+
+	public void setAccountInvoice(AccountInvoice accountInvoice) {
+		this.accountInvoice = accountInvoice;
+	}
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
 
 	public String getName() {
 		return name;
@@ -85,13 +128,13 @@ public class Account implements Serializable{
 		this.accountId = accountId;
 	}
 
-	public List<AccountInvoice> getAccountInvoice() {
-		return accountInvoice;
-	}
-
-	public void setAccountInvoice(List<AccountInvoice> accountInvoice) {
-		this.accountInvoice = accountInvoice;
-	}
+//	public List<AccountInvoice> getAccountInvoice() {
+//		return accountInvoice;
+//	}
+//
+//	public void setAccountInvoice(List<AccountInvoice> accountInvoice) {
+//		this.accountInvoice = accountInvoice;
+//	}
 	
 
 }

@@ -32,8 +32,8 @@ public class MaritalStatus implements Serializable{
 	@Column(name="marital_status_id")
 	private Integer maritalStatusId;
 	
-	@NotNull
-    @NotEmpty
+//	@NotNull
+//    @NotEmpty
 	@Column(name = "name")
 	private String name;
 

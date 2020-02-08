@@ -81,4 +81,30 @@ public class MaritalStatusController {
 		return "list-maritalstatus";
 	}
 
+	public MaritalStatusDAO getMaritalstatusdao() {
+		return maritalstatusdao;
+	}
+
+	public void setMaritalstatusdao(MaritalStatusDAO maritalstatusdao) {
+		this.maritalstatusdao = maritalstatusdao;
+	}
+
+	public MaritalStatus getMaritalstatus() {
+		return maritalstatus;
+	}
+
+	public void setMaritalstatus(MaritalStatus maritalstatus) {
+		this.maritalstatus = maritalstatus;
+	}
+
+	public List<MaritalStatus> getAccountitemdetails() {
+		return accountitemdetails;
+	}
+
+	public void setAccountitemdetails(List<MaritalStatus> accountitemdetails) {
+		this.accountitemdetails = accountitemdetails;
+	}
+
+	
+	
 }

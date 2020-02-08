@@ -31,8 +31,8 @@ public class Gender implements Serializable{
 	@Column(name="gender_id")
 	private Integer genderId;
 	
-	@NotNull
-    @NotEmpty
+//	@NotNull
+//    @NotEmpty
 	@Column(name = "name")
 	private String name;
 
@@ -52,8 +52,6 @@ public class Gender implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-
 
 
 	
