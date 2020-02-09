@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+<h1>Listado de Categorias</h1>
+
+<h:form>
+
+	<h:outputText value="No existe registros guardados" 
+		rendered="#{empty  categoryController.categorys}" />
+
+	<h:dataTable value="#{categoryController.categorys}" var="category"
+		rendered="#{not empty categoryController.categorys}">
+
+		<h:column>
+			<f:facet name="header">Nombre</f:facet>
+			#{category.name}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Acciones</f:facet>
+			<!--  <h:commandButton action="#{categoryController.loadDataEdit(category.categoryId)}" value="Editar" />  -->
+			<a href="edit-category.xhtml?id=#{category.categoryId}">Editar</a>
+			<h:commandButton action="#{categoryController.delete(category.categoryId)}" value="Eliminar" />
+			<h:commandButton action="#{categoryController.borrar(category.categoryId)}" value="Eli" />
+		</h:column>
+	</h:dataTable>
+	<h:commandButton action="create-category" value="Crear nueva Categoria" />
+
+</h:form>
+
+</body> 
+</html>

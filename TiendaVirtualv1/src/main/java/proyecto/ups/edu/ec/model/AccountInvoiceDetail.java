@@ -53,10 +53,6 @@ public class AccountInvoiceDetail implements Serializable{
 	private String name;
 
 	@NotNull
-    @Column(name = "description")
-	private String description;
-
-	@NotNull
     @Column(name = "cost")
 	private double cost;
 
@@ -80,17 +76,9 @@ public class AccountInvoiceDetail implements Serializable{
     @Column(name = "image1")
 	private String image1;
 
-	@Column(name = "image2")
-	//private byte[] image2;
-	private String image2;
-
-	@NotNull
-    @Column(name = "image3")
-	private String image3;
-
-	@Temporal(value = TemporalType.DATE)
+//	@Temporal(value = TemporalType.DATE)
 	@Column(name="issue_date")
-	private Date issueDate;
+	private String issueDate;
 
 	@OneToOne
 	@JoinColumn(name = "category_id")
@@ -110,14 +98,6 @@ public class AccountInvoiceDetail implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 	public double getCost() {
@@ -152,36 +132,12 @@ public class AccountInvoiceDetail implements Serializable{
 		this.size = size;
 	}
 
-	public String getVattax() {
-		return vattax;
-	}
-
-	public void setVattax(String vattax) {
-		this.vattax = vattax;
-	}
-
 	public String getImage1() {
 		return image1;
 	}
 
 	public void setImage1(String image1) {
 		this.image1 = image1;
-	}
-
-	public String getImage3() {
-		return image3;
-	}
-
-	public void setImage3(String image3) {
-		this.image3 = image3;
-	}
-
-	public String getImage2() {
-		return image2;
-	}
-
-	public void setImage2(String image2) {
-		this.image2 = image2;
 	}
 
 	public int getAccountInvoiceDetailId() {
@@ -192,11 +148,13 @@ public class AccountInvoiceDetail implements Serializable{
 		this.accountInvoiceDetailId = accountInvoiceDetailId;
 	}
 
-	public Date getIssueDate() {
+
+
+	public String getIssueDate() {
 		return issueDate;
 	}
 
-	public void setIssueDate(Date issueDate) {
+	public void setIssueDate(String issueDate) {
 		this.issueDate = issueDate;
 	}
 

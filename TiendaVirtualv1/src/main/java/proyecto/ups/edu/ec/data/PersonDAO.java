@@ -1,12 +1,10 @@
 package proyecto.ups.edu.ec.data;
 
 import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
 import proyecto.ups.edu.ec.model.Person;
 
 
@@ -46,6 +44,7 @@ public class PersonDAO {
 	
 	public List<Person> listPerson(){
 		Query query=em.createQuery("SELECT p from Person p ", Person.class);
+		@SuppressWarnings("unchecked")
 		List<Person> list=query.getResultList();
 		return list;
 	}

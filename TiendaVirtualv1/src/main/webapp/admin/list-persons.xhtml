@@ -25,26 +25,63 @@
 			#{person.identification}
 		</h:column>
 		<h:column>
-			<f:facet name="header">Nombres</f:facet>
-			#{person.name}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Actividad</f:facet>
-			#{person.activity}
-		</h:column>
-		<h:column>
 			<f:facet name="header">Email</f:facet>
 			#{person.email}
 		</h:column>
 		<h:column>
+			<f:facet name="header">Password</f:facet>
+			#{person.password1}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Nombre1</f:facet>
+			#{person.firstName}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Nombre2</f:facet>
+			#{person.lastName}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Apellido1</f:facet>
+			#{person.paternSurname}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Apellido2</f:facet>
+			#{person.maternSurname}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Direccion</f:facet>
+			#{person.homeMainStreet}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Codigo Postal</f:facet>
+			#{person.codePostal}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Telefono</f:facet>
+			#{person.phone}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Pais</f:facet>
+			#{person.country}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Ciudad</f:facet>
+			#{person.city}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Fecha de Nacimiento</f:facet>
+			#{person.registrationDate}
+		</h:column>
+
+		<h:column>
 			<f:facet name="header">Acciones</f:facet>
-			<h:commandButton action="#{personController.loadDataEdit(person.personId)}" value="Editar" />
-			<a href="edit-person.xhtml?id=#{person.personId}">Editar</a>
+			<h:commandButton action="#{personController.loadDataEdit(person.personId)}" value="NOEditar" />
+			<a href="edit-person.xhtml?id=#{person.personId}">SIEditar</a>
 			<h:commandButton action="#{personController.delete(person.personId)}" value="Eliminar" />
-			<h:commandButton action="#{personController.borrar(person.personId)}" value="Eli" />
+			<h:commandButton action="#{personController.borrar(person.personId)}" value="SIEliminar" />
 		</h:column>
 	</h:dataTable>
-	<h:commandButton action="create-person" value="Crear nueva persona" />
+	<h:commandButton action="register" value="Crear nueva persona" />
 
 </h:form>
 

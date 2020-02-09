@@ -13,6 +13,9 @@ import proyecto.ups.edu.ec.data.AccountInvoiceDetailDAO;
 import proyecto.ups.edu.ec.data.PersonDAO;
 import proyecto.ups.edu.ec.model.AccountInvoiceDetail;
 import proyecto.ups.edu.ec.model.Person;
+
+
+
 import javax.ws.rs.core.Response;
 
 @Path("/persons")
@@ -80,7 +83,7 @@ public class Servicios {
 	@Path("/savePerson")
     @Consumes("application/json")
     @Produces("application/json")
-	public Response crearAsistente(Person person) {
+	public Response createperson(Person person) {
 		Response.ResponseBuilder builder =null;
 		try {
 			perdao.save(person);
@@ -123,5 +126,24 @@ public class Servicios {
 //		}
 //		return accs
 //	}
+	
+	
+	@POST
+	@Path("/savePerson1")
+    @Produces("application/json")
+    @Consumes("application/json")
+	public Respuesta guardar(Person asistente) {
+		Respuesta res=new Respuesta();
+		try {
+			perdao.save(asistente);
+			res.setCodigo(1);
+			res.setMensaje("ok");
+			return res;
+		} catch (Exception e) {
+			res.setCodigo(99);
+			res.setMensaje("error general");
+			return res;
+		}
+	}
 
 }

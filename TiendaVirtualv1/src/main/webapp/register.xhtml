@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="https://primefaces.org/ui"
+>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Login | E-Shopper</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/prettyPhoto.css" rel="stylesheet"/>
+    <link href="css/price-range.css" rel="stylesheet"/>
+    <link href="css/animate.css" rel="stylesheet"/>
+	<link href="css/main.css" rel="stylesheet"/>
+	<link href="css/responsive.css" rel="stylesheet"/>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png"/>
+</head><!--/head-->
+
+<body>
+	<header id="header"><!--header-->
+
+	</header><!--/header-->
+	
+<!-- 	<section id="form">form -->
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-4">
+					<div class="signup-form"><!--sign up form-->
+						<h2>Registrar Nuevo Usurio</h2>
+					
+<h:form>
+	<h:panelGrid columns="3" id = "panel">
+
+<h:outputLabel value="CI:" for="cedula"/>
+		<h:inputText id="cedula" value="#{personController.person.identification}"/>
+		<h:message for="cedula"/>
+		
+		<h:outputLabel value="Email:" for="email"/>
+		<h:inputText id="email" value="#{personController.person.email}"/>
+		<h:message for="email"/>
+		
+		<h:outputLabel value="Password:" for="password1"/>
+		<h:inputSecret id="password1" value="#{personController.person.password1}"/>
+		<h:message for="password1"/>
+		
+		<h:outputLabel value="Primer Nombre:" for="nombre1"/>
+		<h:inputText id="nombre1" value="#{personController.person.firstName}"/>
+		<h:message for="nombre1"/>
+		
+		<h:outputLabel value="Segundo Nombre:" for="nombre2"/>
+		<h:inputText id="nombre2" value="#{personController.person.lastName}"/>
+		<h:message for="nombre2"/>
+		
+		<h:outputLabel value="Primer Apellido:" for="nombre3"/>
+		<h:inputText id="nombre3" value="#{personController.person.paternSurname}"/>
+		<h:message for="nombre3"/>
+		
+		<h:outputLabel value="Segundo Apellido:" for="nombre4"/>
+		<h:inputText id="nombre4" value="#{personController.person.maternSurname}"/>
+		<h:message for="nombre4"/>
+
+		<h:outputLabel value="Calle Principal:" for="calle1"/>
+		<h:inputText id="calle1" value="#{personController.person.homeMainStreet}"/>
+		<h:message for="calle1"/>		
+		
+		<h:outputLabel value="Codigo Postal:" for="postal"/>
+		<h:inputText id="postal" value="#{personController.person.codePostal}"/>
+		<h:message for="postal"/>
+		
+		<h:outputLabel value="Telefono" for="phone"/>
+		<h:inputText id="phone" value="#{personController.person.phone}"/>
+		<h:message for="phone"/>
+
+		<h:outputLabel value="Pais:" for="country"/>
+		<h:inputText id="country" value="#{personController.person.country}"/>
+		<h:message for="country"/>
+				
+		<h:outputLabel value="Ciudad:" for="city"/>
+		<h:inputText id="city" value="#{personController.person.city}"/>
+		<h:message for="city"/>
+		
+		<h:outputLabel value="Fecha Nacimiento (yyyy/mm/dd):" for="fecha"/>
+		<h:inputText id="fecha" value="#{personController.person.registrationDate}">
+			<f:convertDateTime pattern="yyyy/MM/dd" />
+		</h:inputText>
+		<h:message for="fecha"/>
+		
+   
+		
+		<h:commandButton action="#{personController.save()}" value="Guardar" />
+		<h:commandButton action="list-persons" value="Cancelar" />
+		<h:messages globalOnly="true"/>
+		
+
+	
+	</h:panelGrid>
+
+
+</h:form>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						<!--   <form action="#">
+							<input type="text" placeholder="Name"/>
+							<input type="email" placeholder="Email Address"/>
+							<input type="password" placeholder="Password"/>
+							<button type="submit" class="btn btn-default">Signup</button>
+						</form>  --> 
+						
+					</div><!--/sign up form-->
+				</div>
+			</div>
+		</div>
+		
+<!-- 	</section> -->
+	
+	
+	
+	
+
+  
+    <script src="js/jquery.js"></script>
+	<script src="js/price-range.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

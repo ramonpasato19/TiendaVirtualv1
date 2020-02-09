@@ -30,18 +30,20 @@ public class MaritalStatus implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="marital_status_id")
-	private Integer maritalStatusId;
+	private int maritalStatusId;
 	
 //	@NotNull
 //    @NotEmpty
 	@Column(name = "name")
 	private String name;
 
-	public Integer getMaritalStatusId() {
+
+
+	public int getMaritalStatusId() {
 		return maritalStatusId;
 	}
 
-	public void setMaritalStatusId(Integer maritalStatusId) {
+	public void setMaritalStatusId(int maritalStatusId) {
 		this.maritalStatusId = maritalStatusId;
 	}
 

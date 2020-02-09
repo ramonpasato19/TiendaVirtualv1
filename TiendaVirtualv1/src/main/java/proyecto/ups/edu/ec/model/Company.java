@@ -37,7 +37,7 @@ public class Company implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="company_id")
-	private Integer companyId;
+	private int companyId;
 		
 	@NotNull
     @NotEmpty
@@ -62,22 +62,20 @@ public class Company implements Serializable{
 //	@JoinColumn(name="company")
 //	private List<Product> products;
 	
-	@ManyToOne
-	@JoinColumn(name="person_id", nullable=false)
-	private Person person;
+//	@ManyToOne
+//	@JoinColumn(name="person_id", nullable=false)
+//	private Person person;
 	
+	public String getName() {
+		return name;
+	}
 
-	
-	public Integer getCompanyId() {
+	public int getCompanyId() {
 		return companyId;
 	}
 
-	public void setCompanyId(Integer companyId) {
+	public void setCompanyId(int companyId) {
 		this.companyId = companyId;
-	}
-
-	public String getName() {
-		return name;
 	}
 
 	public void setName(String name) {
@@ -107,16 +105,6 @@ public class Company implements Serializable{
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
 	}
-
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(Person person) {
-		this.person = person;
-	}
-
-
 
 	
 }

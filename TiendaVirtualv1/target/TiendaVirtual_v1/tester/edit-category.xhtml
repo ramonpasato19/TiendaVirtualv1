@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head>
+
+<f:metadata>
+  <f:viewParam name="id" value="#{categoryController.id}"/>
+</f:metadata>
+ 
+<body> 
+
+
+<h1>Editar Categorias</h1>
+
+<h:form>
+	<h:inputText value="#{categoryController.id}" />
+
+	<h:panelGrid columns="3">
+		<h:outputLabel value="Codigo:" for="id"/>
+		<h:inputText id="id" value="#{categoryController.category.categoryId}"/>
+		<h:message for="id"/>
+		
+		<h:outputLabel value="Nombre:" for="name"/>
+		<h:inputText id="name" value="#{categoryController.category.name}"/>
+		<h:message for="name"/>
+		
+		<h:commandButton action="#{categoryController.save()}" value="Guardar" />
+		<h:commandButton action="list-categorys" value="Cancelar" />
+		<h:messages globalOnly="true"/>
+	
+	</h:panelGrid>
+
+
+</h:form>
+
+
+</body> 
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+
+
+<h1>Crear Persona</h1>
+
+<h:form>
+	<h:panelGrid columns="3">
+		
+		<h:outputLabel value="Codigo Barras:" for="code"/>
+		<h:inputText id="code" value="#{accountItemController.accountitem.code}"/>
+		<h:message for="code"/>
+		
+		<h:outputLabel value="Nombre:" for="name"/>
+		<h:inputText id="name" value="#{accountItemController.accountitem.name}"/>
+		<h:message for="name"/>
+		
+		
+		<h:outputLabel value="Descripción:" for="description"/>
+		<h:inputText id="description" value="#{accountItemController.accountitem.description}"/>
+		<h:message for="description"/>
+		
+		<h:outputLabel value="Costo:" for="cost"/>
+		<h:inputText id="cost" value="#{accountItemController.accountitem.cost}"/>
+		<h:message for="cost"/>
+		
+		<h:outputLabel value="Precio:" for="price"/>
+		<h:inputText id="price" value="#{accountItemController.accountitem.price}"/>
+		<h:message for="price"/>
+		
+		<h:outputLabel value="Color:" for="color"/>
+		<h:inputText id="color" value="#{accountItemController.accountitem.color}"/>
+		<h:message for="color"/>
+
+<h:outputLabel value="Tamaño:" for="size"/>
+		<h:inputText id="size" value="#{accountItemController.accountitem.size}"/>
+		<h:message for="size"/>
+
+<h:outputLabel value="Impuesto:" for="vattax"/>
+		<h:inputText id="vattax" value="#{accountItemController.accountitem.vattax}"/>
+		<h:message for="vattax"/>
+
+<h:outputLabel value="Imagen 1:" for="imagen1"/>
+		<h:inputText id="imagen1" value="#{accountItemController.accountitem.image1}"/>
+		<h:message for="imagen1"/>
+
+<h:outputLabel value="Imagen 2:" for="imagen2"/>
+		<h:inputText id="imagen2" value="#{accountItemController.accountitem.image2}"/>
+		<h:message for="imagen2"/>
+		
+
+		
+		
+		
+<h:outputLabel value="Imagen 3:" for="imagen3"/>
+		<h:inputText id="imagen3" value="#{accountItemController.accountitem.image3}"/>
+		<h:message for="imagen3"/>
+
+<h:outputLabel value="Usado/Nuevo: " for="nuevousado"/>
+		<h:inputText id="nuevousado" value="#{accountItemController.accountitem.newUsed}"/>
+		<h:message for="nuevousado"/>
+		
+		
+			<h:selectOneMenu id="categorias" >
+<f:selectItem itemLabel="--Seleccione--" itemValue=""/>
+<f:selectItems value ="#{categoryController.loadCategorys()}"/>
+	</h:selectOneMenu>
+		
+
+		
+		<h:outputLabel value="Fecha Registro (yyyy/mm/dd):" for="fecha"/>
+		<h:inputText id="fecha" value="#{accountItemController.accountitem.registrationDate}">
+			<f:convertDateTime pattern="yyyy/MM/dd" />
+		</h:inputText>
+		<h:message for="fecha"/>
+		
+        <h:commandButton action="#{accountItemController.save()}" value="Guardar"  styleClass="btn btn-primary updateBtnStyle" />
+
+		
+		
+	
+		<h:commandButton action="list-accountitems" value="Cancelar" />
+		<h:messages globalOnly="true"/>
+	
+	</h:panelGrid>
+
+
+</h:form>
+
+
+</body> 
+</html>

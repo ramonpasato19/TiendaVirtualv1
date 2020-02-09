@@ -16,6 +16,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
@@ -28,8 +29,6 @@ import java.util.List;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-
-import asd.Telefono;
 
 /**
  * @author Luis Ramon
@@ -44,7 +43,7 @@ public class Person implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="person_id")
-	private Integer personId;
+	private int personId;
 	
 	@NotNull
     @NotEmpty
@@ -52,13 +51,6 @@ public class Person implements Serializable{
 	@Digits(fraction = 0, integer = 12)
 	@Column(name = "identification")
 	private String identification;
-	
-//	@NotNull
-//    @NotEmpty
-//    @Size(min = 10, max = 30)
-//    @Pattern(regexp = "[^0-9]*", message = "No puede contener numeros")
-//	@Column(name = "name")
-//	private String name;
 	
 	@NotNull
     @NotEmpty
@@ -70,8 +62,6 @@ public class Person implements Serializable{
     @NotEmpty
 	@Column(name = "password1")
 	private String password1;
-	
-	//add new 04 02 2020 ##########################################################################################################################################################################
 	
 	@NotNull
     @NotEmpty
@@ -139,27 +129,11 @@ public class Person implements Serializable{
 	@Column(name="registration_date")
 	private Date registrationDate;
 
-	@OneToOne
-	@JoinColumn(name="gender_id")
-	private Gender gender;
-	
-	@OneToOne
-	@JoinColumn(name="marital_status_id")
-	private MaritalStatus maritalStatus;
-	
-	
-	
-	
-//	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)//tipo deletura que voy hacer, si leo head me traiga los hijos,
-//	@JoinColumn(name = "person",referencedColumnName = "person_id")
-//	private List<Account> account=new ArrayList<Account>();
-	
-	
-	public Integer getPersonId() {
+	public int getPersonId() {
 		return personId;
 	}
 
-	public void setPersonId(Integer personId) {
+	public void setPersonId(int personId) {
 		this.personId = personId;
 	}
 
@@ -170,14 +144,6 @@ public class Person implements Serializable{
 	public void setIdentification(String identification) {
 		this.identification = identification;
 	}
-
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
 
 	public String getEmail() {
 		return email;
@@ -193,14 +159,6 @@ public class Person implements Serializable{
 
 	public void setPassword1(String password1) {
 		this.password1 = password1;
-	}
-
-	public Date getRegistrationDate() {
-		return registrationDate;
-	}
-
-	public void setRegistrationDate(Date registrationDate) {
-		this.registrationDate = registrationDate;
 	}
 
 	public String getFirstName() {
@@ -275,36 +233,12 @@ public class Person implements Serializable{
 		this.country = country;
 	}
 
-	public Gender getGender() {
-		return gender;
+	public Date getRegistrationDate() {
+		return registrationDate;
 	}
 
-	public void setGender(Gender gender) {
-		this.gender = gender;
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
 	}
-
-	public MaritalStatus getMaritalStatus() {
-		return maritalStatus;
-	}
-
-	public void setMaritalStatus(MaritalStatus maritalStatus) {
-		this.maritalStatus = maritalStatus;
-	}
-
-//	public List<Account> getAccount() {
-//		return account;
-//	}
-//
-//	public void setAccount(List<Account> account) {
-//		this.account = account;
-//	}
-	
-//	public void addGender(Gender gender) {
-//		if(gender==null)
-//			gender = new Gender();
-//			gender.add(gender);
-//	}
-	
-
 		
 }
