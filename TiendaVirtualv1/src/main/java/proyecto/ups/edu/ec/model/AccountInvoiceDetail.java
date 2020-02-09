@@ -76,7 +76,7 @@ public class AccountInvoiceDetail implements Serializable{
     @Column(name = "image1")
 	private String image1;
 
-//	@Temporal(value = TemporalType.DATE)
+
 	@Column(name="issue_date")
 	private String issueDate;
 
