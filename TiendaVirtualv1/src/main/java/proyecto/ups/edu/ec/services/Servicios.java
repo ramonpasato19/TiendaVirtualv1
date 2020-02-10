@@ -132,10 +132,10 @@ public class Servicios {
 	@Path("/savePerson1")
     @Produces("application/json")
     @Consumes("application/json")
-	public Respuesta guardar(Person asistente) {
+	public Respuesta guardar(Person person) {
 		Respuesta res=new Respuesta();
 		try {
-			perdao.save(asistente);
+			perdao.save(person);
 			res.setCodigo(1);
 			res.setMensaje("ok");
 			return res;

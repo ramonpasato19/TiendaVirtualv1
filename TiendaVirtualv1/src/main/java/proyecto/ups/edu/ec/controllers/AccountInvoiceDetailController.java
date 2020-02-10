@@ -107,5 +107,7 @@ public class AccountInvoiceDetailController {
 	public void setAccountitemdetails(List<AccountInvoiceDetail> accountitemdetails) {
 		this.accountitemdetails = accountitemdetails;
 	}
+	
+	
 			
 }

@@ -3,12 +3,15 @@ package proyecto.ups.edu.ec.controllers;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
-
 import proyecto.ups.edu.ec.data.AccountInvoiceDAO;
+import proyecto.ups.edu.ec.data.CategoryDAO;
 import proyecto.ups.edu.ec.model.AccountInvoice;
+import proyecto.ups.edu.ec.model.AccountInvoiceDetail;
+import proyecto.ups.edu.ec.model.Category;
 
 
 
@@ -23,9 +26,15 @@ public class AccountInvoiceController {
 	private List<AccountInvoice> accountinvoices;
 	private int id;
 	
+	@Inject
+	private CategoryDAO categorydao;
+	
 	@PostConstruct
 	public void init() {
 		accountinvoice=new AccountInvoice();
+		accountinvoice.getAccountinvoicedetails().add(new AccountInvoiceDetail());  //agregadno a una cabcera un nuevo detalle
+		//accountinvoice.getAccountinvoicedetails().add(new AccountInvoiceDetail());
+//		accountinvoices=accountinvoicedao
 		loadaccountinvoices();
 	}
 	
@@ -108,6 +117,37 @@ public class AccountInvoiceController {
 		this.accountinvoices = accountinvoices;
 	}
 	
+	public String addAccountInvoiceDetail() {
+		System.out.println("add detalle de head");
+		accountinvoice.addCategory(new AccountInvoiceDetail());
+		
+		System.out.println("size 2: " + accountinvoice.getAccountinvoicedetails().size());
+		
+		return null;
+	}
 	
+	public String buscarTelefono(AccountInvoiceDetail telefono) {
+		System.out.println("buscando telefono " + telefono);
+		try {
+			Category tt = buscarTipoTelefono(telefono.getCodigoTipoTemporal());
+			System.out.println(tt);
+			telefono.setCategory(tt);// .setTipo(tt);
+		} catch (Exception e) {
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_FATAL, 
+					e.getMessage(), "Error");
+			//fc.addMessage(null, msg);
+		}
+		
+		return null;
+	}
+	
+	public Category buscarTipoTelefono(int codigo) throws Exception {
+		try {
+			Category tt = categorydao.leer(codigo);
+			return tt;
+		}catch(Exception e) {
+			throw new Exception("Código no corresponde a un TT");
+		}
+	}
 
 }

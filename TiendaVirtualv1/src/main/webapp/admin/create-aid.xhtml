@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"> 
+<h:head>
+</h:head> 
+<body> 
+<h:form>
+	<h:messages globalOnly="true"/>
+	<h:panelGrid columns="3">
+	
+		<h:outputLabel value="Codigo:" for="txtCodigo"/>
+		<h:inputText value="#{accountInvoiceDetailController.accountinvoicedetail.code}" id="txtCodigo"/>
+		<h:message for="txtCodigo"/>
+		
+		<h:outputLabel value="Nombre:" for="txtNombre" />
+		<h:inputText value="#{accountInvoiceDetailController.accountinvoicedetail.name}" id="txtNombre" />
+		<h:message for="txtNombre"/>
+
+		<h:outputLabel value="Precio:" for="precio"/>
+		<h:inputText value="#{accountInvoiceDetailController.accountinvoicedetail.price}" id="precio" />
+		<h:message for="precio"/>
+		
+		<h:outputLabel value="Color:" for="color"/>
+		<h:inputText value="#{accountInvoiceDetailController.accountinvoicedetail.color}" id="color" />
+		<h:message for="color"/>
+		
+		<h:outputLabel value="Tamaño:" for="size"/>
+		<h:inputText value="#{accountInvoiceDetailController.accountinvoicedetail.size}" id="size" />
+		<h:message for="size"/>
+		
+		<h:outputLabel value="Imagen:" for="image"/>
+		<h:inputText value="#{accountInvoiceDetailController.accountinvoicedetail.image1}" id="image" />
+		<h:message for="image"/>
+		
+		<h:outputLabel value="Fecha:" for="issueDate"/>
+		<h:inputText value="#{accountInvoiceDetailController.accountinvoicedetail.issueDate}" id="issueDate" />
+		<h:message for="issueDate"/>
+		
+		<h:outputLabel value="Categoria"/>
+		<h:inputText value="#{accountInvoiceDetailController.accountinvoicedetail.codigoTipoTemporal}" id="Categoria" />
+		<h:message for="txtNombre"/>
+		
+		
+<!-- 		<h:dataTable value="#{accountInvoiceDetailController.accountinvoicedetail.}" var="movimiento" class="table" id="tablamovimientos"> -->
+<!-- 			<h:column> -->
+<!-- 				<f:facet name="header">Codigo</f:facet> -->
+<!-- 				<h:inputText value="#{movimiento.codigo}" class="form-control" /> -->
+
+<!-- 			</h:column> -->
+		
+<!-- 		<h:column> -->
+<!-- 			<f:facet name="header">Categoria</f:facet> -->
+<!-- 			<h:selectOneMenu value="category.name"></h:selectOneMenu> -->
+<!-- 		</h:column> -->
+		
+
+		<h:commandButton action="#{accountInvoiceDetailController.save()}" value="Guardar" />
+		<h:messages globalOnly="true"/>
+	</h:panelGrid>
+
+</h:form>
+</body> 
+</html>

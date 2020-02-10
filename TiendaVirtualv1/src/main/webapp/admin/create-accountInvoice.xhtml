@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"> 
+<h:head>
+</h:head> 
+<body> 
+<h:form>
+	<h:messages globalOnly="true"/>
+	<h:panelGrid columns="3">
+	
+		<h:head>Cabecera</h:head>
+		
+		<h:outputLabel value="Descripción:" for="remark" />
+		<h:inputText value="#{accountInvoiceController.accountinvoice.remark}" id="remark" />
+		<h:message for="remark"/>
+		
+		
+		<h:outputLabel value="Fecha:" for="txtfecha" />
+		<h:inputText value="#{accountInvoiceController.accountinvoice.issueDate}" id="txtfecha" />
+		<h:message for="txtfecha"/>
+		
+		<h:outputLabel value="Codigo de Autorización:" for="authorization" />
+		<h:inputText value="#{accountInvoiceController.accountinvoice.authorizationCode}" id="authorization" />
+		<h:message for="authorization"/>
+		
+		
+		<h:outputLabel value="Código de Esstablecimiento:" for="establishment" />
+		<h:inputText value="#{accountInvoiceController.accountinvoice.establishmentCode}" id="establishment" />
+		<h:message for="establishment"/>
+		
+		
+		<h:outputLabel value="Código de Emisión:" for="emission" />
+		<h:inputText value="#{accountInvoiceController.accountinvoice.emissionCode}" id="emission" />
+		<h:message for="emission"/>
+		
+		
+				<h:head>Detail...................</h:head>
+		
+		<h:dataTable value="#{accountInvoiceController.accountinvoice.accountinvoicedetails}" var="aid">
+		
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+				<h:inputText value="#{aid.code}" id="txtCodigo" />
+				<h:message for="txtCodigo"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:inputText value="#{aid.name}" id="txtNombre"/>
+				<h:message for="txtNombre"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Precio</f:facet>
+				<h:inputText value="#{aid.price}" id="txtPrecio"/>
+				<h:message for="txtPrecio"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Color</f:facet>
+				<h:inputText value="#{aid.color}" id="txtColor"/>
+				<h:message for="txtColor"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Tamaño</f:facet>
+				<h:inputText value="#{aid.size}" id="txtSize"/>
+				<h:message for="txtSize"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Imagen</f:facet>
+				<h:inputText value="#{aid.image1}" id="txtImage"/>
+				<h:message for="txtImage"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Fecha</f:facet>
+				<h:inputText value="#{aid.issueDate}" id="txtIssueDate"/>
+				<h:message for="txtIssueDate"/>
+			</h:column>
+	
+		
+			<h:column>
+			
+				<f:facet name="header">Categoria</f:facet>
+				<h:inputText value="#{aid.codigoTipoTemporal}" id="txtTipoTelefono" >
+					<f:ajax render="lblTipoTelefonoNombre" execute="txtTipoTelefono" listener="#{accountInvoiceController.buscarTelefono(aid)}" />
+				</h:inputText>
+				<h:outputText id="lblTipoTelefonoNombre" value="#{aid.category.name}" />
+				<h:message for="txtTipoTelefono"/>
+			
+			</h:column>
+		
+		</h:dataTable>
+		<h:commandButton action="#{accountInvoiceController.addAccountInvoiceDetail()}" value="+ More Detail" />
+
+
+		<h:commandButton action="#{accountInvoiceController.save()}" value="Guardar" />
+		<h:messages globalOnly="true"/>
+	</h:panelGrid>
+
+</h:form>
+</body> 
+</html>

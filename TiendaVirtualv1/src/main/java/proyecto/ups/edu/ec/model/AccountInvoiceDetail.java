@@ -22,6 +22,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
@@ -44,6 +45,8 @@ public class AccountInvoiceDetail implements Serializable{
 	@Column(name="account_invoice_detail_id")
 	private int accountInvoiceDetailId;
 		
+	//JPA inplicitamente agrega el campo al padre
+	
 	@NotNull
     @Column(name = "code")
 	private String code;	
@@ -51,10 +54,6 @@ public class AccountInvoiceDetail implements Serializable{
 	@NotNull
     @Column(name = "name")
 	private String name;
-
-	@NotNull
-    @Column(name = "cost")
-	private double cost;
 
 	@NotNull
     @Column(name = "price")
@@ -69,10 +68,6 @@ public class AccountInvoiceDetail implements Serializable{
 	private String size;
 
 	@NotNull
-    @Column(name = "vattax")
-	private String vattax;
-
-	@NotNull
     @Column(name = "image1")
 	private String image1;
 
@@ -83,6 +78,9 @@ public class AccountInvoiceDetail implements Serializable{
 	@OneToOne
 	@JoinColumn(name = "category_id")
 	private Category category;
+	
+	@Transient
+	private int codigoTipoTemporal;
 	
 	public String getCode() {
 		return code;
@@ -98,14 +96,6 @@ public class AccountInvoiceDetail implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public double getCost() {
-		return cost;
-	}
-
-	public void setCost(double cost) {
-		this.cost = cost;
 	}
 
 	public Double getPrice() {
@@ -148,8 +138,6 @@ public class AccountInvoiceDetail implements Serializable{
 		this.accountInvoiceDetailId = accountInvoiceDetailId;
 	}
 
-
-
 	public String getIssueDate() {
 		return issueDate;
 	}
@@ -165,5 +153,19 @@ public class AccountInvoiceDetail implements Serializable{
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+	public int getCodigoTipoTemporal() {
+		if(category==null)
+			return this.codigoTipoTemporal;
+		if(this.codigoTipoTemporal == 0)
+			return category.getCategoryId();
+		return codigoTipoTemporal;
+	}
+
+	public void setCodigoTipoTemporal(int codigoTipoTemporal) {
+		this.codigoTipoTemporal = codigoTipoTemporal;
+	}
+	
+	
 	
 }

@@ -125,9 +125,9 @@ public class Person implements Serializable{
     @Column(name = "country")
 	private String country;
 	
-	@Temporal(value = TemporalType.DATE)
+//	@Temporal(value = TemporalType.DATE)
 	@Column(name="registration_date")
-	private Date registrationDate;
+	private String registrationDate;
 
 	public int getPersonId() {
 		return personId;
@@ -233,12 +233,22 @@ public class Person implements Serializable{
 		this.country = country;
 	}
 
-	public Date getRegistrationDate() {
+	public String getRegistrationDate() {
 		return registrationDate;
 	}
 
-	public void setRegistrationDate(Date registrationDate) {
+	public void setRegistrationDate(String registrationDate) {
 		this.registrationDate = registrationDate;
 	}
+
+//	public Date getRegistrationDate() {
+//		return registrationDate;
+//	}
+//
+//	public void setRegistrationDate(Date registrationDate) {
+//		this.registrationDate = registrationDate;
+//	}
 		
+	
+	
 }

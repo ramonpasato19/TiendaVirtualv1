@@ -101,10 +101,14 @@ xmlns="http://www.w3.org/1999/xhtml"
 		<h:message for="city"/>
 		
 		<h:outputLabel value="Fecha Nacimiento (yyyy/mm/dd):" for="fecha"/>
-		<h:inputText id="fecha" value="#{personController.person.registrationDate}">
-			<f:convertDateTime pattern="yyyy/MM/dd" />
-		</h:inputText>
+		<h:inputText id="fecha" value="#{personController.person.registrationDate}"/>
 		<h:message for="fecha"/>
+		
+<!-- 		<h:outputLabel value="Fecha Nacimiento (yyyy/mm/dd):" for="fecha"/> -->
+<!-- 		<h:inputText id="fecha" value="#{personController.person.registrationDate}"> -->
+<!-- 			<f:convertDateTime pattern="yyyy/MM/dd" /> -->
+<!-- 		</h:inputText> -->
+<!-- 		<h:message for="fecha"/> -->
 		
          
 		

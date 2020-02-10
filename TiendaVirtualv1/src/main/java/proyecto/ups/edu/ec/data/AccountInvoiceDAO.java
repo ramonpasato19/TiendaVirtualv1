@@ -48,5 +48,16 @@ public class AccountInvoiceDAO {
 		List<AccountInvoice> list=query.getResultList();
 		return list;
 	}
+	
+	public List<AccountInvoice> getPersonasPorNombre(String filtroBusqued){
+		String jpql = "SELECT p FROM AccountInvoice p "
+					+ "	WHERE p.accountInvoiceId LIKE :filtro ";
+		
+		Query q = em.createQuery(jpql, AccountInvoice.class);
+		q.setParameter("filtro", "%"+filtroBusqued+"%");
+		
+		List<AccountInvoice> personas = q.getResultList();
+		return personas;
+	}
 
 }
