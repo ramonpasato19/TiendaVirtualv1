@@ -10,8 +10,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import proyecto.ups.edu.ec.data.AccountInvoiceDetailDAO;
+import proyecto.ups.edu.ec.data.CategoryDAO;
 import proyecto.ups.edu.ec.data.PersonDAO;
 import proyecto.ups.edu.ec.model.AccountInvoiceDetail;
+import proyecto.ups.edu.ec.model.Category;
 import proyecto.ups.edu.ec.model.Person;
 
 
@@ -26,6 +28,9 @@ public class Servicios {
 	@Inject
 	private PersonDAO perdao;
 	
+	@Inject
+	private CategoryDAO catdao;
+	
 	@GET
 	@Path("/saludo")
 	@Produces("application/json")
@@ -36,16 +41,16 @@ public class Servicios {
 	
 	
 	@GET
-	@Path("/listado")
+	@Path("/listPerson")
 	@Produces("application/json")
-	public List<Person> listar(){
+	public List<Person> listPerson(){
 		return perdao.listPerson();
 	}
 	
 	@GET
-	@Path("/listadoitems")
+	@Path("/listDetails")
 	@Produces("application/json")
-	public List<AccountInvoiceDetail> listar1(){
+	public List<AccountInvoiceDetail> listDetails(){
 		return accountinvoicedetaildao.listAccountInvoiceDetail();
 	}
 	
@@ -80,10 +85,10 @@ public class Servicios {
 	
 	
 	@POST
-	@Path("/savePerson")
+	@Path("/createPerson")
     @Consumes("application/json")
     @Produces("application/json")
-	public Response createperson(Person person) {
+	public Response createPerson(Person person) {
 		Response.ResponseBuilder builder =null;
 		try {
 			perdao.save(person);
@@ -129,10 +134,10 @@ public class Servicios {
 	
 	
 	@POST
-	@Path("/savePerson1")
+	@Path("/createPerson1")
     @Produces("application/json")
     @Consumes("application/json")
-	public Respuesta guardar(Person person) {
+	public Respuesta createPerson1(Person person) {
 		Respuesta res=new Respuesta();
 		try {
 			perdao.save(person);
@@ -144,6 +149,23 @@ public class Servicios {
 			res.setMensaje("error general");
 			return res;
 		}
+	}
+	
+	@POST
+	@Path("/login")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public List<Person> Login(Person a){
+		//return asidao.login(a.getEmail(), a.getPassword());
+		return perdao.login(a.getEmail(), a.getPassword1());
+	}
+	
+	
+	@GET
+	@Path("/listCategory")
+	@Produces("application/json")
+	public List<Category> listCategory(){
+		return catdao.listCategory();
 	}
 
 }

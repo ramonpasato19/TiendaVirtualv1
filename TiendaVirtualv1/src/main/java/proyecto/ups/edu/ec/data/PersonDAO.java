@@ -5,6 +5,8 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
 import proyecto.ups.edu.ec.model.Person;
 
 
@@ -48,5 +50,15 @@ public class PersonDAO {
 		List<Person> list=query.getResultList();
 		return list;
 	}
+	
+	
+	//web service para login app movil
+	public List<Person> login(String email, String pass){
+		String sql="SELECT a FROM Person a WHERE a.email='"+email+"' AND a.password1='"+pass+"'";
+		TypedQuery<Person> query =em.createQuery(sql,Person.class);
+		List<Person> asistentes=query.getResultList();
+		return asistentes;
+	}
+	
 	
 }
