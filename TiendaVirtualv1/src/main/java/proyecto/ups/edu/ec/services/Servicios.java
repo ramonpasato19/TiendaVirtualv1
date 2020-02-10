@@ -38,8 +38,7 @@ public class Servicios {
 		return "hola "+ nombre;
 	}
 	
-	
-	
+		
 	@GET
 	@Path("/listPerson")
 	@Produces("application/json")
